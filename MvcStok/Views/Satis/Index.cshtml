@@ -1,0 +1,41 @@
+﻿@model MvcStok.Models.Entity.TBLSATISLAR
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<button type="button" class="btn btn-group-vertical" style="color:darkred" data-toggle="modal" data-target="#modal1">SATIŞ EKRANI İÇİN BASINIZ</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" data-dismiss="modal">x</span>
+                <h2 class="modal-title">
+                    SATIŞ EKRANI
+                </h2>
+            </div>
+            <form method="post" action="/Satis/YeniSatis">
+                <div class="modal-body">
+                    @*@Html.DropDownListFor(m => m.TBLURUNLER.URUNID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })*@
+                    @Html.TextBoxFor(m => m.URUN, new { @class = "form-control", @placeholder = "Ürün adı..." })
+                    <br />
+                    @Html.TextBoxFor(m => m.MUSTERI, new { @class = "form-control", @placeholder = "Müşteri adı..." })
+                    <br />
+                    @Html.TextBoxFor(m => m.ADET, new { @class = "form-control", @placeholder = "Adet girin..." })
+                    <br />
+                    @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control", @placeholder = "Satış fiyatını girin..." })
+                    <br />
+                    <button class="btn btn-primary" id="btn">Satışı onayla</button>
+                </div>
+                <script>
+                    $('#btn').click(function () {
+                        alert('Satış işlemi başarılı');
+                    });
+                </script>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
